@@ -1,0 +1,98 @@
+# ============================================================
+# Fristenmanager-KI — Konfiguration
+# ============================================================
+# Kopieren Sie diese Datei als settings.yaml und passen Sie die Werte an.
+# KEINE echten API-Keys in diese Datei eintragen!
+# ============================================================
+
+app:
+  name: "Fristenmanager-KI"
+  version: "1.0.0"
+  host: "0.0.0.0"
+  port: 8501
+
+# KI-Backend (Ollama ist Standard — DSGVO-konform, lokal)
+ki:
+  backend: "ollama"                    # "ollama" (Standard) oder "claude" (Cloud-Fallback)
+  ollama_url: "http://localhost:11434"  # Ollama API-URL
+  ollama_modell: "llama3"              # Empfohlen: llama3, mistral, phi3
+
+  # Optionaler Claude API Fallback
+  claude_api_key: ""                   # Platzhalter — NICHT echten Key eintragen
+  claude_modell: "claude-3-haiku-20240307"
+
+# PostgreSQL Datenbank
+datenbank:
+  host: "localhost"
+  port: 5432
+  name: "fristenmanager"
+  user: "fristen"
+  password: ""                         # In .env Datei speichern!
+
+# Redis (Caching)
+redis:
+  host: "localhost"
+  port: 6379
+  db: 0
+  passwort: ""
+
+# E-Mail-Einstellungen (SMTP)
+email:
+  smtp_host: "mail.beispiel-behoerde.de"  # SMTP-Server
+  smtp_port: 587                          # SMTP-Port (587 = STARTTLS, 465 = SSL)
+  smtp_user: ""                           # SMTP-Benutzername
+  smtp_pass: ""                           # SMTP-Passwort
+  absender: "fristenmanager@behoerde.de"  # Absender-Adresse
+
+# Erinnerungsregeln
+erinnerung:
+  vorab_tage: [14, 7, 3, 1]              # Wie viele Tage vor Frist erinnert wird
+  uhrzeit: "08:00"                        # Uhrzeit der täglichen Prüfung
+  wochenende: true                        # Auch am Wochenende erinnern?
+
+# Eskalationsregeln
+eskalation:
+  aktiv: true                             # Eskalation aktiv
+  stufen:
+    - tage: 3                             # Stufe 1: 3 Tage vor Frist
+      empfaenger: "vorgesetzter"
+    - tage: 1                             # Stufe 2: 1 Tag vor Frist
+      empfaenger: "vorgesetzter"
+    - tage: 0                             # Stufe 3: Am Fristtag
+      empfaenger: "leitung"
+  vorgesetzter_name: ""                   # Name des Vorgesetzten
+  vorgesetzter_email: ""                  # E-Mail des Vorgesetzten
+  leitung_email: ""                       # E-Mail der Abteilungsleitung
+
+# Fristentypen (für die KI-Klassifizierung)
+fristentypen:
+  - name: "Widerspruch"
+    standard_frist_tage: 30               # Übliche Frist in Tagen
+    gesetzesgrundlage: "§ 70 VwGO"
+  - name: "Einspruch"
+    standard_frist_tage: 30
+    gesetzesgrundlage: "§ 347 AO"
+  - name: "Klage"
+    standard_frist_tage: 30
+    gesetzesgrundlage: "§ 74 VwGO"
+  - name: "Stellungnahme"
+    standard_frist_tage: 14
+    gesetzesgrundlage: ""
+  - name: "Anhörung"
+    standard_frist_tage: 14
+    gesetzesgrundlage: "§ 28 VwVfG"
+  - name: "Genehmigung"
+    standard_frist_tage: 30
+    gesetzesgrundlage: ""
+  - name: "Auskunft"
+    standard_frist_tage: 14
+    gesetzesgrundlage: "§ 5 UIG"
+  - name: "Mitteilung"
+    standard_frist_tage: 7
+    gesetzesgrundlage: ""
+
+# Datenaufbewahrung (DSGVO-Löschkonzept)
+aufbewahrung:
+  fristen_erledigt_tage: 365             # Erledigte Fristen: 1 Jahr
+  audit_log_tage: 90                      # Audit-Log: 90 Tage
+  dokumente_tage: 180                     # Dokumente: 6 Monate

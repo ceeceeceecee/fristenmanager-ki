@@ -1,0 +1,43 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+venv/
+.venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads
+uploads/
+
+# Secrets & Keys
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Config (nur Beispiel bleibt im Repo)
+config/settings.yaml
+
+# Docker
+docker-compose.override.yml
