@@ -44,8 +44,18 @@ Verpasste Fristen in Behörden bedeuten **rechtliches Risiko**, Verzögerungen i
 
 ## 🚀 Schnellstart
 
+### Voraussetzungen
+
+| Komponente | Version | Zweck |
+|---|---|---|
+| Docker | 20.10+ | Container-Deployment |
+| Docker Compose | 2.0+ | Service-Orchestrierung |
+| Ollama | neueste | Lokale KI-Verarbeitung |
+| RAM | 8 GB+ | KI-Modell & Dashboard |
+
+### Installation
+
 ```bash
-# Repo klonen
 git clone https://github.com/ceeceeceecee/fristenmanager-ki.git
 cd fristenmanager-ki
 
@@ -54,28 +64,16 @@ cp config/settings.example.yaml config/settings.yaml
 
 # Starten
 docker compose up -d
-
-# App öffnen
-open http://localhost:8501
 ```
 
-## 📋 Voraussetzungen
+### Erste Schritte
 
-| Komponente | Version | Zweck |
-|---|---|---|
-| Docker | 20.10+ | Container-Deployment |
-| Docker Compose | 2.0+ | Service-Orchestrierung |
-| Ollama | neueste | Lokale KI-Verarbeitung |
+1. **App öffnen** — [http://localhost:8501](http://localhost:8501)
+2. **Ollama einrichten** — `ollama pull llama3` (falls nicht über Docker)
+3. **Dokument hochladen** — PDF/DOCX mit Fristen werden automatisch erkannt
+4. **Dashboard prüfen** — Ampelsystem zeigt grün/gelb/rote Fristen an
 
-### Ollama einrichten
 
-```bash
-# Ollama installieren (https://ollama.ai)
-curl -fsSL https://ollama.ai/install.sh | sh
-
-# Empfohlenes Modell herunterladen
-ollama pull llama3
-```
 
 ## ⚙️ Konfiguration
 
