@@ -23,6 +23,25 @@ Verpasste Fristen in Behörden bedeuten **rechtliches Risiko**, Verzögerungen i
 - **🔐 Audit-Log** — Vollständige Nachverfolgung aller Aktionen
 - **🐳 Ein-Kommando-Install** — `docker compose up -d` und loslegen
 
+
+
+## 📸 Screenshots
+
+### Dashboard — Ampelübersicht aller Fristen
+![Dashboard](screenshots/dashboard.png)
+
+### Dokument-Analyse — KI erkennt Fristen automatisch
+![Dokument-Analyse](screenshots/dokument-analyse.png)
+
+### Neue Frist erfassen
+![Neue Frist](screenshots/neue-frist.png)
+
+### Statistiken
+![Statistiken](screenshots/statistiken.png)
+
+### Einstellungen
+![Einstellungen](screenshots/einstellungen.png)
+
 ## 🚀 Schnellstart
 
 ```bash
