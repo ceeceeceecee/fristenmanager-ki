@@ -127,3 +127,7 @@ MIT License — siehe [LICENSE](LICENSE)
 ---
 
 **Entwickelt für die öffentliche Verwaltung. DSGVO-konform. Open Source.**
+
+## 👤 Autor
+
+**Cela** — Freelancer für digitale Verwaltungslösungen
