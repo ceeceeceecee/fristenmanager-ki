@@ -1,7 +1,7 @@
 # 🏛️ Fristenmanager-KI – Automatische Fristenerkennung für Behörden
 
 ![DSGVO-konform](https://img.shields.io/badge/DSGVO-konform-brightgreen)
-![Self-Hosted](https://img.shields.io/badge/Deployment-Self--Hosted-blue)
+![Self-Hosted](https://img.shields.io/badge/Deployment-Self_Hosted-blue)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB)
 ![Ollama](https://img.shields.io/badge/KI-Backend-Ollama-white)
