@@ -4,7 +4,7 @@
 ![Self-Hosted](https://img.shields.io/badge/Deployment-Self_Hosted-blue)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB)
-![Ollama](https://img.shields.io/badge/KI-Backend-Ollama-000000)
+![Ollama](https://img.shields.io/badge/KI-Backend-Ollama-333)
 
 ## 🚨 Das Problem
 
