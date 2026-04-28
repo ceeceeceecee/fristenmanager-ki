@@ -1,133 +1,75 @@
-# 🏛️ Fristenmanager-KI – Automatische Fristenerkennung für Behörden
+# Fristenmanager Ki
 
-![DSGVO-konform](https://img.shields.io/badge/DSGVO-konform-brightgreen)
-![Self-Hosted](https://img.shields.io/badge/Deployment-Self_Hosted-blue)
-![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)
-![Python](https://img.shields.io/badge/Python-3.11+-3776AB)
-![Ollama](https://img.shields.io/badge/KI-Backend-Ollama-333)
+<p align="center">
+<img src="https://raw.githubusercontent.com/ceeceeceecee/ai-document-analyzer/main/docs/coletrading-banner.svg" alt="ColeTrading" width="600">
+</p>
 
-## 🚨 Das Problem
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python) ![DSGVO](https://img.shields.io/badge/DSGVO-Konform-brightgreen) ![Self-Hosted](https://img.shields.io/badge/Self-Hosted-blue) ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker) ![Ollama](https://img.shields.io/badge/Ollama-KI-333?logo=ollama)
 
-Verpasste Fristen in Behörden bedeuten **rechtliches Risiko**, Verzögerungen in Verwaltungsverfahren und potenzielle Regressforderungen. Sachbearbeiter müssen Hunderte von Dokumenten überwachen — bei sinkenden Personalressourcen eine wachsende Herausforderung.
+> Automatische Fristenerkennung und -überwachung für Behörden
 
-**Fristenmanager-KI** erkennt automatisch Fristen aus Eingangspost, Bescheiden und Verwaltungsdokumenten und überwacht diese mit einem intuitiven Ampel-Dashboard.
+## Overview
 
-## ✅ Features
+KI-gestützte Fristenüberwachung für Behörden. Erkennt automatisch Fristen aus Dokumenten, sendet Erinnerungen und verwaltet Wiedervorlagen. Self-hosted mit Ollama.
 
-- **🔍 Automatische Fristenerkennung** — KI analysiert PDF- und DOCX-Dokumente und extrahiert Fristen
-- **🚦 Ampel-Dashboard** — Grüne (>14 Tage), gelbe (3–14 Tage), rote (<3 Tage) Visualisierung
-- **📧 Intelligente Erinnerungen** — Automatische E-Mail-Erinnerungen an Sachbearbeiter
-- **⚡ Eskalationsmanagement** — Automatische Eskalation bei drohenden Fristverletzungen
-- **🧠 Lokale KI (Ollama)** — DSGVO-konform, keine Datenabgabe an Cloud-Dienste
-- **📊 Statistiken & Berichte** — Übersicht über Fristenlast, Bearbeitungszeiten, Team-Performance
-- **🔐 Audit-Log** — Vollständige Nachverfolgung aller Aktionen
-- **🐳 Ein-Kommando-Install** — `docker compose up -d` und loslegen
+## Features
 
+- Automatische Fristenerkennung aus Dokumenten
+- KI-gestützte Dokumentenanalyse
+- Erinnerungs-System mit E-Mail
+- Wiedervorlagen-Verwaltung
+- Statistik-Dashboard
+- DSGVO-konforme Speicherung
 
+## Tech Stack
 
-## 📸 Screenshots
+| Tech | Zweck |
+|------|-------|
+| Python 3.11+ | Backend |
+| Streamlit | Web-Interface |
+| Ollama | Lokale KI |
+| SQLite | Datenbank |
+| Docker | Deployment |
 
-### Dashboard — Ampelübersicht aller Fristen
-![Dashboard](screenshots/dashboard.png)
-
-### Dokument-Analyse — KI erkennt Fristen automatisch
-![Dokument-Analyse](screenshots/dokument-analyse.png)
-
-### Neue Frist erfassen
-![Neue Frist](screenshots/neue-frist.png)
-
-### Statistiken
-![Statistiken](screenshots/statistiken.png)
-
-### Einstellungen
-![Einstellungen](screenshots/einstellungen.png)
-
-## 🚀 Schnellstart
-
-### Voraussetzungen
-
-| Komponente | Version | Zweck |
-|---|---|---|
-| Docker | 20.10+ | Container-Deployment |
-| Docker Compose | 2.0+ | Service-Orchestrierung |
-| Ollama | neueste | Lokale KI-Verarbeitung |
-| RAM | 8 GB+ | KI-Modell & Dashboard |
-
-### Installation
+## Quick Start
 
 ```bash
-git clone https://github.com/ceeceeceecee/fristenmanager-ki.git
-cd fristenmanager-ki
-
-# Konfiguration anpassen
-cp config/settings.example.yaml config/settings.yaml
-
-# Starten
-docker compose up -d
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
-### Erste Schritte
+## Screenshots
 
-1. **App öffnen** — [http://localhost:8501](http://localhost:8501)
-2. **Ollama einrichten** — `ollama pull llama3` (falls nicht über Docker)
-3. **Dokument hochladen** — PDF/DOCX mit Fristen werden automatisch erkannt
-4. **Dashboard prüfen** — Ampelsystem zeigt grün/gelb/rote Fristen an
+**Dashboard mit Fristenübersicht**
 
+<img src="screenshots/dashboard.png" alt="Dashboard mit Fristenübersicht" width="800">
 
+**Neue Frist erstellen**
 
-## ⚙️ Konfiguration
+<img src="screenshots/neue-frist.png" alt="Neue Frist erstellen" width="800">
 
-Alle Einstellungen in `config/settings.yaml`:
+**Dokumentenanalyse zur Fristenerkennung**
 
-- **SMTP** — E-Mail-Versand für Erinnerungen
-- **Erinnerungsregeln** — Wann und wie oft erinnert wird
-- **Eskalation** — Stufen und Empfänger bei Fristverletzungsgefahr
-- **Fristentypen** — Wiedervorlage, Stellungnahme, Genehmigung, etc.
+<img src="screenshots/dokument-analyse.png" alt="Dokumentenanalyse zur Fristenerkennung" width="800">
 
-## 📁 Projektstruktur
+**Konfiguration**
 
-```
-fristenmanager-ki/
-├── app.py                    # Streamlit Web-App
-├── processor/                # KI-Verarbeitung
-│   ├── document_scanner.py   # Dokument-Einlesung
-│   ├── ki_analyzer.py        # Ollama/Claude Integration
-│   └── reminder_engine.py    # Erinnerungen & Eskalation
-├── database/                 # Datenbank
-│   ├── schema.sql            # PostgreSQL Schema
-│   └── db_manager.py         # CRUD-Operationen
-├── prompts/                  # KI-Prompts
-├── email_templates/          # E-Mail-Vorlagen
-├── config/                   # Konfiguration
-├── scripts/                  # Setup & Wartung
-├── docs/                     # Dokumentation
-└── docker-compose.yml        # Container-Setup
-```
+<img src="screenshots/einstellungen.png" alt="Konfiguration" width="800">
 
-## 📸 Screenshots
+**Statistiken und Reports**
 
-*(Screenshots folgen nach erster Installation)*
-
-## 📄 Dokumentation
-
-- [Installationsanleitung](docs/setup-guide.md)
-- [Datenschutzerklärung & DSGVO](docs/datenschutz.md)
-
-## 🛡️ DSGVO-Konformität
-
-- **100% Self-Hosted** — Keine Daten verlassen den Server
-- **Lokale KI** — Ollama läuft vollständig auf dem eigenen Server
-- **Löschkonzept** — Automatische Datenlöschung nach Aufbewahrungsfristen
-- **Audit-Log** — Vollständige Protokollierung aller Zugriffe
-
-## 📜 Lizenz
-
-MIT License — siehe [LICENSE](LICENSE)
+<img src="screenshots/statistiken.png" alt="Statistiken und Reports" width="800">
 
 ---
 
-**Entwickelt für die öffentliche Verwaltung. DSGVO-konform. Open Source.**
+## Contributing
 
-## 👤 Autor
+Beiträge sind willkommen! Bitte erstelle einen Issue oder Pull Request.
 
-**Cela** — Freelancer für digitale Verwaltungslösungen
+## License
+
+MIT License — siehe [LICENSE](LICENSE).
+
+<p align="center">
+<a href="https://github.com/ceeceeceecee">ColeTrading</a> &bull; DSGVO-konform &bull; Self-Hosted &bull; Open Source
+</p>
