@@ -57,7 +57,6 @@ streamlit run app.py
 
 **Statistiken und Reports**
 
-<img src="screenshots/statistiken.png" alt="Statistiken und Reports" width="800">
 
 ---
 
