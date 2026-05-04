@@ -14,8 +14,10 @@ from typing import Optional, List, Dict, Any
 logger = logging.getLogger(__name__)
 
 # Standard-Modell und URL
-OLLAMA_STANDARD_URL = "http://localhost:11434"
-OLLAMA_STANDARD_MODELL = "llama3"
+import os
+
+OLLAMA_STANDARD_URL = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+OLLAMA_STANDARD_MODELL = os.environ.get("OLLAMA_MODEL", "llama3")
 
 
 class FristenAnalyzer:
